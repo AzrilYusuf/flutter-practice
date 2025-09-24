@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:praktikum_2/main.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -43,12 +42,77 @@ class ProfileScreen extends StatelessWidget {
               backgroundImage: AssetImage('./lib/assets/images/pbw.jpeg'),
             ),
             const Text(
-              'OwO',
+              'Prabs Wibowo',
               style: TextStyle(
                 fontFamily: 'Pacifico',
                 fontSize: 30.0,
-                color: Colors.white,
+                color: Colors.white, // Constant color
                 fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              'Informatika',
+              style: TextStyle(
+                fontFamily: 'Source Sans Pro',
+                color: Colors.green[100], // Dynamic color
+                fontSize: 20.0,
+                letterSpacing: 2.5,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            // SizedBox is a box with a specified size (used for spacing)
+            SizedBox(
+              height: 20.0,
+              width: 100.0,
+              // Divider is a thin horizontal line (used to separate content)
+              child: Divider(color: Colors.teal.shade100), // Dynamic color
+            ),
+            // Card is a sheet of Material used to represent some related information (like a contact)
+            // Card has slightly rounded corners and a shadow
+            Card(
+              // Margin is the space outside the border
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                // Row is a layout widget that arranges its children horizontally
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.phone,
+                      color: Colors.cyan[900], // Dynamic color
+                    ),
+                    SizedBox(width: 10.0),
+                    Text(
+                      '+62 812-3456-7890',
+                      style: TextStyle(
+                        color: Colors.cyan[900], // Dynamic color
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 10.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: Padding(
+                padding: EdgeInsets.all(0.0),
+                // ListTile is a single fixed-height row that typically contains some text as well as a leading or trailing icon
+                child: ListTile(
+                  leading: Icon(
+                    Icons.email,
+                    color: Colors.cyan[900], // Dynamic color
+                  ),
+                  title: Text(
+                    'prabsngabers@gmail.com',
+                    style: TextStyle(
+                      color: Colors.cyan[900], // Dynamic color
+                      fontFamily: 'Source Sans Pro',
+                      fontSize: 10.0,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
