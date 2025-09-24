@@ -7,6 +7,29 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Scaffold is a layout for the major Material Components (is providing structure to the page)
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Icon(Icons.person),
+            const SizedBox(width: 10.0),
+            const Text("Profile"),
+          ],
+        ),
+        // centerTitle: true,
+        backgroundColor: Colors.cyan[500],
+        // flexibleSpace is a widget that is stacked behind the toolbar and the tab bar
+        flexibleSpace: Container(
+          // BoxDecoration is a class that allows you to decorate a box with various styles
+          decoration: BoxDecoration(
+            // LinearGradient is a gradient that transitions between colors in a straight line
+            gradient: LinearGradient(
+              colors: [Colors.cyan.shade600, Colors.cyan.shade400],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        ),
+      ),
       // Gives color to the background page
       backgroundColor: Colors.cyan[400],
       // SafeArea is a widget that insets its child by sufficient padding to avoid intrusions by the operating system (like notches, status bar, etc)
@@ -29,18 +52,18 @@ class ProfileScreen extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Pacifico',
                 fontSize: 30.0,
-                color: Colors.white, // Constant color
                 fontWeight: FontWeight.bold,
+                color: Colors.white, // Constant color
               ),
             ),
             Text(
               'Informatika',
               style: TextStyle(
                 fontFamily: 'Source Sans Pro',
-                color: Colors.green[100], // Dynamic color
                 fontSize: 20.0,
-                letterSpacing: 2.5,
                 fontWeight: FontWeight.bold,
+                letterSpacing: 2.5,
+                color: Colors.green[100], // Dynamic color
               ),
             ),
             // SizedBox is a box with a specified size (used for spacing)
@@ -68,9 +91,9 @@ class ProfileScreen extends StatelessWidget {
                     Text(
                       '+62 812-3456-7890',
                       style: TextStyle(
-                        color: Colors.cyan[900], // Dynamic color
                         fontFamily: 'Source Sans Pro',
                         fontSize: 10.0,
+                        color: Colors.cyan[900], // Dynamic color
                       ),
                     ),
                   ],
@@ -90,9 +113,9 @@ class ProfileScreen extends StatelessWidget {
                   title: Text(
                     'prabsngabers@gmail.com',
                     style: TextStyle(
-                      color: Colors.cyan[900], // Dynamic color
                       fontFamily: 'Source Sans Pro',
                       fontSize: 10.0,
+                      color: Colors.cyan[900], // Dynamic color
                     ),
                   ),
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Praktikum2 extends StatefulWidget {
-  const Praktikum2({Key? key, required this.title}) : super(key: key);
+class ShoppingScreen extends StatefulWidget {
+  const ShoppingScreen({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -15,10 +15,10 @@ class Praktikum2 extends StatefulWidget {
   final String title;
 
   @override
-  State<Praktikum2> createState() => _Praktikum2State();
+  State<ShoppingScreen> createState() => _ShoppingScreenState();
 }
 
-class _Praktikum2State extends State<Praktikum2> {
+class _ShoppingScreenState extends State<ShoppingScreen> {
   TextEditingController productCodeController = TextEditingController();
   TextEditingController totalProductController = TextEditingController();
   TextEditingController purchasingMethodController = TextEditingController();
@@ -31,7 +31,7 @@ class _Praktikum2State extends State<Praktikum2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Praktikum 2")),
+      appBar: AppBar(title: const Text("Shopping")),
       body: Column(
         children: [
           Expanded(
@@ -226,4 +226,3 @@ class _Praktikum2State extends State<Praktikum2> {
     );
   }
 }
-

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:praktikum_2/screens/profile_screen.dart';
+import 'package:praktikum_2/screens/home_screen.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
