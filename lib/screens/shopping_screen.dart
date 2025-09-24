@@ -36,7 +36,10 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
           children: [
             Icon(Icons.shopping_cart),
             const SizedBox(width: 10.0),
-            const Text("Shopping"),
+            const Text(
+              "Shopping",
+              style: TextStyle(fontFamily: 'Source Sans Pro'),
+            ),
           ],
         ),
         // centerTitle: true,
@@ -63,8 +66,8 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.blueAccent,
+                    borderRadius: BorderRadius.circular(20.0),
+                    color: Colors.cyan[100],
                   ),
                   child: ListView(
                     padding: const EdgeInsets.all(16.0),
@@ -140,7 +143,13 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                                   totalPayment = totalPrice - discount;
                                   setState(() {});
                                 },
-                                child: const Text("Proses"),
+                                child: Text(
+                                  "Proses",
+                                  style: TextStyle(
+                                    fontFamily: 'Source Sans Pro',
+                                    color: Colors.cyan[900],
+                                  ),
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -158,7 +167,13 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                                     totalPayment = 0;
                                   });
                                 },
-                                child: const Text("Kosongkan"),
+                                child: Text(
+                                  "Kosongkan",
+                                  style: TextStyle(
+                                    fontFamily: 'Source Sans Pro',
+                                    color: Colors.cyan[900],
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -192,7 +207,13 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                         }
                         setState(() {});
                       },
-                      child: const Text("Looping dengan for"),
+                      child: Text(
+                        "Looping dengan for",
+                        style: TextStyle(
+                          fontFamily: 'Source Sans Pro',
+                          color: Colors.cyan[900],
+                        ),
+                      ),
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -204,7 +225,13 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                         }
                         setState(() {});
                       },
-                      child: const Text("Looping dengan while"),
+                      child: Text(
+                        "Looping dengan while",
+                        style: TextStyle(
+                          fontFamily: 'Source Sans Pro',
+                          color: Colors.cyan[900],
+                        ),
+                      ),
                     ),
                     ElevatedButton(
                       onPressed: () {
@@ -229,7 +256,13 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
                         }
                         setState(() {});
                       },
-                      child: const Text("Looping dengan for-in"),
+                      child: Text(
+                        "Looping dengan for-in",
+                        style: TextStyle(
+                          fontFamily: 'Source Sans Pro',
+                          color: Colors.cyan[900],
+                        ),
+                      ),
                     ),
                     Text("Hasil Looping: $loopingResult"),
                   ],

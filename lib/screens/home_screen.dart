@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Icon(Icons.home),
             const SizedBox(width: 10.0),
-            const Text("Home"),
+            const Text("Home", style: TextStyle(fontFamily: 'Source Sans Pro')),
           ],
         ),
         // centerTitle: true,
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                   fontFamily: 'Source Sans Pro',
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue[900],
+                  color: Colors.cyan[900], // Dynamic color
                 ),
               ),
             ),
@@ -58,8 +58,17 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              label: Text("Profile"),
-              icon: Icon(Icons.person),
+              label: Text(
+                "Profile",
+                style: TextStyle(
+                  fontFamily: 'Source Sans Pro',
+                  color: Colors.cyan[900], // Constant color
+                ),
+              ),
+              icon: Icon(
+                Icons.person,
+                color: Colors.cyan[900],
+              ), // Constant color
             ),
             SizedBox(height: 20.0),
             ElevatedButton.icon(
@@ -72,8 +81,17 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              label: Text("Shopping"),
-              icon: Icon(Icons.shopping_cart),
+              label: Text(
+                "Shopping",
+                style: TextStyle(
+                  fontFamily: 'Source Sans Pro',
+                  color: Colors.cyan[900], // Constant color
+                ),
+              ),
+              icon: Icon(
+                Icons.shopping_cart,
+                color: Colors.cyan[900],
+              ), // Constant color
             ),
           ],
         ),

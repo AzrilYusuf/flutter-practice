@@ -12,7 +12,10 @@ class ProfileScreen extends StatelessWidget {
           children: [
             Icon(Icons.person),
             const SizedBox(width: 10.0),
-            const Text("Profile"),
+            const Text(
+              "Profile",
+              style: TextStyle(fontFamily: 'Source Sans Pro'),
+            ),
           ],
         ),
         // centerTitle: true,
