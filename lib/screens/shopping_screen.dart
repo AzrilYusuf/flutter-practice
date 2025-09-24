@@ -31,197 +31,213 @@ class _ShoppingScreenState extends State<ShoppingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Shopping")),
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                color: Colors.blueAccent,
-                child: ListView(
-                  padding: const EdgeInsets.all(16.0),
-                  children: [
-                    TextField(
-                      controller: productCodeController,
-                      decoration: const InputDecoration(
-                        label: Text("Kode Barang"),
-                      ),
-                    ),
-                    TextField(
-                      controller: totalProductController,
-                      decoration: const InputDecoration(
-                        label: Text("Jumlah Barang"),
-                      ),
-                    ),
-                    TextField(
-                      controller: purchasingMethodController,
-                      decoration: const InputDecoration(
-                        label: Text("Metode Pembayaran (T/C)"),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            width: 150,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                String productCode = productCodeController.text;
-                                double totalProduct = double.parse(
-                                  totalProductController.text,
-                                );
-                                String purchasingMethod =
-                                    purchasingMethodController.text;
-
-                                switch (productCode.toUpperCase()) {
-                                  case "SPT":
-                                    productName = "Sepatu";
-                                    price = 200000;
-                                    break;
-                                  case "SDL":
-                                    productName = "Sandal";
-                                    price = 50000;
-                                    break;
-                                  case "TST":
-                                    productName = "T-shirt";
-                                    price = 100000;
-                                    break;
-                                  case "TOP":
-                                    productName = "Topi";
-                                    price = 70000;
-                                    break;
-                                  default:
-                                    productName = "";
-                                    price = 0;
-                                    break;
-                                }
-
-                                totalPrice = totalProduct * price;
-
-                                if (purchasingMethod.toUpperCase() == "T") {
-                                  discount =
-                                      0.10 *
-                                      totalPrice; // 10% discount for debit card
-                                } else {
-                                  discount = 0; // no discount for cash
-                                }
-
-                                totalPayment = totalPrice - discount;
-                                setState(() {});
-                              },
-                              child: const Text("Proses"),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 150,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  productCodeController.clear();
-                                  totalProductController.clear();
-                                  purchasingMethodController.clear();
-                                  productName = "";
-                                  price = 0;
-                                  totalPrice = 0;
-                                  discount = 0;
-                                  totalPayment = 0;
-                                });
-                              },
-                              child: const Text("Kosongkan"),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Text("Nama barang: $productName"),
-                    Text("Harga satuan: Rp $price"),
-                    Text("Total harga: Rp $totalPrice"),
-                    Text("Total diskon: Rp $discount"),
-                    Text("Total pembayaran: Rp $totalPayment"),
-                  ],
-                ),
-              ),
+      appBar: AppBar(
+        title: Row(
+          children: [
+            Icon(Icons.shopping_cart),
+            const SizedBox(width: 10.0),
+            const Text("Shopping"),
+          ],
+        ),
+        // centerTitle: true,
+        backgroundColor: Colors.cyan[500],
+        // flexibleSpace is a widget that is stacked behind the toolbar and the tab bar
+        flexibleSpace: Container(
+          // BoxDecoration is a class that allows you to decorate a box with various styles
+          decoration: BoxDecoration(
+            // LinearGradient is a gradient that transitions between colors in a straight line
+            gradient: LinearGradient(
+              colors: [Colors.cyan.shade600, Colors.cyan.shade400],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                color: const Color.fromARGB(255, 135, 43, 255),
-                width: MediaQuery.of(context).size.width,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Wrap(
-                    spacing: 8.0,
-                    runSpacing: 8.0,
+        ),
+      ),
+      backgroundColor: Colors.cyan[400],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.blueAccent,
+                  ),
+                  child: ListView(
+                    padding: const EdgeInsets.all(16.0),
                     children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          loopingResult.clear();
-                          for (int i = 0; i < 10; i++) {
-                            loopingResult.add(i.toString());
-                          }
-                          setState(() {});
-                        },
-                        child: const Text("Looping dengan for"),
+                      TextField(
+                        controller: productCodeController,
+                        decoration: const InputDecoration(
+                          label: Text("Kode Barang"),
+                        ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          loopingResult.clear();
-                          int i = 1;
-                          while (i < 100) {
-                            loopingResult.add(i.toString());
-                            i += 5;
-                          }
-                          setState(() {});
-                        },
-                        child: const Text("Looping dengan while"),
+                      TextField(
+                        controller: totalProductController,
+                        decoration: const InputDecoration(
+                          label: Text("Jumlah Barang"),
+                        ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          loopingResult.clear();
+                      TextField(
+                        controller: purchasingMethodController,
+                        decoration: const InputDecoration(
+                          label: Text("Metode Pembayaran (T/C)"),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: 150,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  String productCode =
+                                      productCodeController.text;
+                                  double totalProduct = double.parse(
+                                    totalProductController.text,
+                                  );
+                                  String purchasingMethod =
+                                      purchasingMethodController.text;
 
-                          List<String> colors = [
-                            "Merah",
-                            "Kuning",
-                            "Hijau",
-                            "Biru",
-                            "Ungu",
-                            "Jingga",
-                            "Abu-abu",
-                          ];
+                                  switch (productCode.toUpperCase()) {
+                                    case "SPT":
+                                      productName = "Sepatu";
+                                      price = 200000;
+                                      break;
+                                    case "SDL":
+                                      productName = "Sandal";
+                                      price = 50000;
+                                      break;
+                                    case "TST":
+                                      productName = "T-shirt";
+                                      price = 100000;
+                                      break;
+                                    case "TOP":
+                                      productName = "Topi";
+                                      price = 70000;
+                                      break;
+                                    default:
+                                      productName = "";
+                                      price = 0;
+                                      break;
+                                  }
 
-                          for (var element in colors) {
-                            loopingResult.add(
-                              (element.toString().toLowerCase().contains("a"))
-                                  ? element
-                                  : "-",
-                            );
-                          }
-                          setState(() {});
-                        },
-                        child: const Text("Looping dengan for-in"),
+                                  totalPrice = totalProduct * price;
+
+                                  if (purchasingMethod.toUpperCase() == "T") {
+                                    discount =
+                                        0.10 *
+                                        totalPrice; // 10% discount for debit card
+                                  } else {
+                                    discount = 0; // no discount for cash
+                                  }
+
+                                  totalPayment = totalPrice - discount;
+                                  setState(() {});
+                                },
+                                child: const Text("Proses"),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 150,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    productCodeController.clear();
+                                    totalProductController.clear();
+                                    purchasingMethodController.clear();
+                                    productName = "";
+                                    price = 0;
+                                    totalPrice = 0;
+                                    discount = 0;
+                                    totalPayment = 0;
+                                  });
+                                },
+                                child: const Text("Kosongkan"),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                      Text("Hasil Looping: $loopingResult"),
-                      // ElevatedButton(
-                      //   onPressed: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(builder: (context) => const ProfileScreen()),
-                      //     );
-                      //   },
-                      //   child: const Text("Profile"),
-                      // ),
+                      Text("Nama barang: $productName"),
+                      Text("Harga satuan: Rp $price"),
+                      Text("Total harga: Rp $totalPrice"),
+                      Text("Total diskon: Rp $discount"),
+                      Text("Total pembayaran: Rp $totalPayment"),
                     ],
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+            Container(
+              color: Colors.cyan[400],
+              height: 250,
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Wrap(
+                  spacing: 8.0,
+                  runSpacing: 8.0,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        loopingResult.clear();
+                        for (int i = 0; i < 10; i++) {
+                          loopingResult.add(i.toString());
+                        }
+                        setState(() {});
+                      },
+                      child: const Text("Looping dengan for"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        loopingResult.clear();
+                        int i = 1;
+                        while (i < 100) {
+                          loopingResult.add(i.toString());
+                          i += 5;
+                        }
+                        setState(() {});
+                      },
+                      child: const Text("Looping dengan while"),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        loopingResult.clear();
+
+                        List<String> colors = [
+                          "Merah",
+                          "Kuning",
+                          "Hijau",
+                          "Biru",
+                          "Ungu",
+                          "Jingga",
+                          "Abu-abu",
+                        ];
+
+                        for (var element in colors) {
+                          loopingResult.add(
+                            (element.toString().toLowerCase().contains("a"))
+                                ? element
+                                : "-",
+                          );
+                        }
+                        setState(() {});
+                      },
+                      child: const Text("Looping dengan for-in"),
+                    ),
+                    Text("Hasil Looping: $loopingResult"),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
