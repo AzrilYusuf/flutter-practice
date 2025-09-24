@@ -48,10 +48,10 @@ class ProfileScreen extends StatelessWidget {
             // CircleAvatar is a widget that shows a circular image (typically used for profile pictures)
             const CircleAvatar(
               radius: 50.0,
-              backgroundImage: AssetImage('./lib/assets/images/pbw.jpeg'),
+              backgroundImage: AssetImage('./lib/assets/images/ishowjava.jpg'),
             ),
             const Text(
-              'Prabs Wibowo',
+              'Raden Ishowjava',
               style: TextStyle(
                 fontFamily: 'Pacifico',
                 fontSize: 30.0,
@@ -114,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
                     color: Colors.cyan[900], // Dynamic color
                   ),
                   title: Text(
-                    'prabsngabers@gmail.com',
+                    'ishowjava.kingofjava@gmail.com',
                     style: TextStyle(
                       fontFamily: 'Source Sans Pro',
                       fontSize: 10.0,
